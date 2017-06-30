@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,7 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\ILinkCategoryRepository.cs" />
+    <Compile Include="Abstract\ILinkRepository.cs" />
+    <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="Concrete\EFLinkCategoryRepository.cs" />
+    <Compile Include="Concrete\EFLinkRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\LinksManager.Entities\LinksManager.Entities.csproj">
+      <Project>{0A248515-04C4-400C-B4E4-73E3BA5D51D0}</Project>
+      <Name>LinksManager.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
