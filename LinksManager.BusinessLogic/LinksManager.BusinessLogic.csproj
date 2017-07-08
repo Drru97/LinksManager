@@ -40,7 +40,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\ICategoryService.cs" />
+    <Compile Include="Abstract\ILinkService.cs" />
+    <Compile Include="Concrete\CategoryService.cs" />
+    <Compile Include="Concrete\LinkService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\LinksManager.DataAccess\LinksManager.DataAccess.csproj">
+      <Project>{17CC0298-B0FB-4FD9-87DF-F20DCAB875DC}</Project>
+      <Name>LinksManager.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LinksManager.Entities\LinksManager.Entities.csproj">
+      <Project>{0A248515-04C4-400C-B4E4-73E3BA5D51D0}</Project>
+      <Name>LinksManager.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

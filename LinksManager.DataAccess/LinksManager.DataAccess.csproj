@@ -41,10 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\ILinkCategoryRepository.cs" />
+    <Compile Include="Abstract\GenericRepository.cs" />
+    <Compile Include="Abstract\ICategoryRepository.cs" />
+    <Compile Include="Abstract\IGenericRepository.cs" />
     <Compile Include="Abstract\ILinkRepository.cs" />
-    <Compile Include="Abstract\IRepository.cs" />
-    <Compile Include="Concrete\EFLinkCategoryRepository.cs" />
+    <Compile Include="Concrete\EFCategoryRepository.cs" />
     <Compile Include="Concrete\EFLinkRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

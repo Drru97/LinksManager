@@ -1,15 +1,9 @@
-﻿using System.Collections.Generic;
-using LinksManager.Entities;
+﻿using LinksManager.Entities;
 
 namespace LinksManager.DataAccess.Abstract
 {
-    public interface ILinkRepository : IRepository<Link>
+    public interface ILinkRepository : IGenericRepository<Link>
     {
-        //IList<Link> GetAlLinks();
-        //Link GetLink(int id);
-        //void AddLink(Link link);
-        //void UpdateLink(Link link);
-        //void DeleteLink(int id);
-        //new void Save();
+        Link Get(int id);
     }
 }
