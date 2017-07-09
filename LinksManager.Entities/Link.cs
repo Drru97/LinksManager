@@ -4,7 +4,7 @@ namespace LinksManager.Entities
 {
     public class Link
     {
-        [Required]
+        [Key]
         public int Id { get; set; }
         [Required]
         public string Url { get; set; }

@@ -52,7 +52,7 @@ namespace LinksManager.BusinessLogic.Concrete
         {
             if (id < 0)
             {
-                throw new ArgumentException("id must me positive number", nameof(id));
+                throw new ArgumentException("id must be positive number", nameof(id));
             }
             if (category == null)
             {

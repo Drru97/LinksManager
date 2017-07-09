@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
+
 namespace LinksManager.Entities.Migrations
 {
     using System.Data.Entity.Migrations;
@@ -13,6 +16,32 @@ namespace LinksManager.Entities.Migrations
         protected override void Seed(LinkContext context)
         {
             // TODO: Add some initial data
+            context.Categories.AddRange(new List<Category>
+            {
+                new Category {Name = "Web search"},
+                new Category {Name = "Social"},
+                new Category {Name = "News"},
+                new Category {Name = "Weather"}
+            });
+            context.SaveChanges();
+
+            context.Links.AddRange(new List<Link>
+            {
+                new Link
+                {
+                    Title = "Google",
+                    Url = "https://google.com",
+                    Description = "Just Google it!",
+                    Category = context.Categories.FirstOrDefault(c => c.Name == "Web search")
+                },
+                new Link
+                {
+                    Title = "Facebook",
+                    Url = "https://facebook.com",
+                    Category = context.Categories.FirstOrDefault(c => c.Name == "Social")
+                }
+            });
+            context.SaveChanges();
         }
     }
 }

@@ -25,6 +25,11 @@ namespace LinksManager.BusinessLogic.Concrete
             return _linkRepository.Get(id);
         }
 
+        public IEnumerable<Link> GetAll()
+        {
+            return _linkRepository.GetAll();
+        }
+
         public IEnumerable<Link> GetLinksByCategory(string categoryName)
         {
             if (string.IsNullOrEmpty(categoryName))
@@ -53,6 +58,71 @@ namespace LinksManager.BusinessLogic.Concrete
             }
 
             return _linkRepository.FindBy(l => l.Description == description);
+        }
+
+        public bool AddLink(Link link)
+        {
+            if (link == null)
+            {
+                throw new ArgumentNullException(nameof(link), "Link cannot be null");
+            }
+
+            var newLink = _linkRepository.Get(link.Id);
+            if (newLink != null)
+            {
+                return false;
+            }
+
+            _linkRepository.Add(link);
+            _linkRepository.Save();
+            return true;
+        }
+
+        public bool EditLink(int id, Link link)
+        {
+            if (id < 0)
+            {
+                throw new ArgumentException("id must be positive number");
+            }
+            if (link == null)
+            {
+                throw new ArgumentNullException(nameof(link), "Link cannot be null");
+            }
+
+            var editLink = _linkRepository.Get(id);
+            if (editLink == null)
+            {
+                return false;
+            }
+
+            // TODO: Needs be refactored
+            editLink.Title = link.Title;
+            editLink.Url = link.Url;
+            editLink.Description = link.Description;
+            editLink.Category = link.Category;
+            editLink.CategoryId = link.CategoryId;
+
+            _linkRepository.Edit(editLink);
+            _linkRepository.Save();
+            return true;
+        }
+
+        public bool DeleteLink(int id)
+        {
+            if (id < 0)
+            {
+                throw new ArgumentException("id must be positive number");
+            }
+
+            var deleteLink = _linkRepository.Get(id);
+            if (deleteLink == null)
+            {
+                return false;
+            }
+
+            _linkRepository.Delete(deleteLink);
+            _linkRepository.Save();
+            return true;
         }
     }
 }
