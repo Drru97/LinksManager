@@ -37,7 +37,7 @@ namespace LinksManager.BusinessLogic.Concrete
                 throw new ArgumentException("Category name cannot be null or empty", nameof(categoryName));
             }
 
-            return _linkRepository.FindBy(l => l.Category.Name == categoryName);
+            return _linkRepository.FindBy(l => l.Category.Name.Contains(categoryName));
         }
 
         public IEnumerable<Link> GetLinksByTitle(string title)
@@ -47,7 +47,7 @@ namespace LinksManager.BusinessLogic.Concrete
                 throw new ArgumentException("Title cannot be null or empty", nameof(title));
             }
 
-            return _linkRepository.FindBy(l => l.Title == title);
+            return _linkRepository.FindBy(l => l.Title.Contains(title));
         }
 
         public IEnumerable<Link> GetLinksByDescription(string description)
@@ -57,7 +57,7 @@ namespace LinksManager.BusinessLogic.Concrete
                 throw new ArgumentException("Description cannot be null", nameof(description));
             }
 
-            return _linkRepository.FindBy(l => l.Description == description);
+            return _linkRepository.FindBy(l => l.Description.Contains(description));
         }
 
         public bool AddLink(Link link)

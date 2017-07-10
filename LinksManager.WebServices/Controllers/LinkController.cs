@@ -1,11 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Web.Http;
 using LinksManager.Entities;
-using LinksManager.DataAccess.Abstract;
 using LinksManager.BusinessLogic.Abstract;
-using LinksManager.DataAccess.Concrete;
 
 namespace LinksManager.WebServices.Controllers
 {
@@ -81,6 +77,27 @@ namespace LinksManager.WebServices.Controllers
             }
 
             return Ok(_linkService.GetLinkById(id));
+        }
+
+        [Route("api/link/category/{categoryName}")]
+        [HttpGet]
+        public IHttpActionResult GetLinkByCategory(string categoryName)
+        {
+            return Ok(_linkService.GetLinksByCategory(categoryName));
+        }
+
+        [Route("api/link/title/{title}")]
+        [HttpGet]
+        public IHttpActionResult GetLinkByTitle(string title)
+        {
+            return Ok(_linkService.GetLinksByTitle(title));
+        }
+
+        [Route("api/link/description/{description}")]
+        [HttpGet]
+        public IHttpActionResult GetLinkByDescription(string description)
+        {
+            return Ok(_linkService.GetLinksByDescription(description));
         }
     }
 }
