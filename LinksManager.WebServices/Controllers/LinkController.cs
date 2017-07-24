@@ -1,5 +1,7 @@
-﻿using System.Net;
+﻿using System.Linq;
+using System.Net;
 using System.Web.Http;
+using System.Web.Http.OData;
 using LinksManager.Entities;
 using LinksManager.BusinessLogic.Abstract;
 
@@ -28,6 +30,7 @@ namespace LinksManager.WebServices.Controllers
         }
 
         [HttpGet]
+        [EnableQuery]
         public IHttpActionResult GetAll()
         {
             return Ok(_linkService.GetAll());
