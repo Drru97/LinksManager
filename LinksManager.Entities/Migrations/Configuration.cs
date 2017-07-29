@@ -12,7 +12,7 @@ namespace LinksManager.Entities.Migrations
             AutomaticMigrationsEnabled = false;
             ContextKey = "LinksManager.Entities.LinkContext";
         }
-
+        
         protected override void Seed(LinkContext context)
         {
             // TODO: Add some initial data
@@ -39,6 +39,18 @@ namespace LinksManager.Entities.Migrations
                     Title = "Facebook",
                     Url = "https://facebook.com",
                     Category = context.Categories.FirstOrDefault(c => c.Name == "Social")
+                },
+                new Link
+                {
+                    Title = "Github",
+                    Url = "https://github.com",
+                    Category = context.Categories.FirstOrDefault(c => c.Name == "News")
+                },
+                new Link
+                {
+                    Title = "Gismeteo",
+                    Url = "http://gismeteo.ua",
+                    Category = context.Categories.FirstOrDefault(c => c.Name == "News")
                 }
             });
             context.SaveChanges();

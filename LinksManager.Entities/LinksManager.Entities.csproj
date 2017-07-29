@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseInitializer.cs" />
     <Compile Include="Link.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="LinkContext.cs" />

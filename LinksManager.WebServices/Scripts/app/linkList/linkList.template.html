@@ -1,0 +1,30 @@
+﻿<div>
+    <table class="table table-responsive table-condensed table-bordered" ng-show="Ctrl.links.length">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Category</th>
+                <th>URL</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="link in Ctrl.links">
+                <td>{{link.Id}}</td>
+                <td>{{link.Title}}</td>
+                <td>{{link.Category}}</td>
+                <td>{{link.Url}}</td>
+                <td>{{link.Description}}</td>
+                <td><input type="button" value="Edit" ng-click="Ctrl.editLinkClick(link.Id)" /></td>
+                <td><input type="button" value="Remove" ng-click="Ctrl.deleteLink(link.Id)" /></td>
+        </tbody>
+    </table>
+    <form ng-show="Ctrl.showEditForm.value" ng-submit="Ctrl.editLinkConfirm()">
+        <input type="text" name="title" ng-model="Ctrl.editedLink.Title" />
+        <input type="text" name="category" ng-model="Ctrl.editedLink.Category" />
+        <input type="text" name="url" ng-model="Ctrl.editedLink.Url" />
+        <input type="text" name="description" ng-model="Ctrl.editedLink.Description" />
+        <input type="submit" value="Save" />
+    </form>
+</div>
